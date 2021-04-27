@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lineplot from a wide-form dataset — seaborn 0.11.1 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/bootstrap-sphinx.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/style.css" rel="stylesheet" type="text/css"/>
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script src="../_static/copybutton.js"></script>
+<link href="../_static/favicon.ico" rel="shortcut icon"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="wide_form_violinplot.html" rel="next" title="Violinplot from a wide-form dataset"/>
+<link href="timeseries_facets.html" rel="prev" title="Small multiple time series"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<script src="../_static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../_static/js/jquery-fix.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-sphinx.js" type="text/javascript"></script>
+</head><body>
+<html><body><div class="navbar navbar-default navbar-fixed-top" id="navbar">
+<div class="container">
+<div class="navbar-header">
+<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+<button class="navbar-toggle" data-target=".nav-collapse" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html#"><span><img src="../_static/logo-wide-lightbg.svg"/></span>
+</a>
+<span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+</div>
+<div class="collapse navbar-collapse nav-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../introduction.html">Introduction</a></li>
+<li><a href="../installing.html">Installing</a></li>
+<li><a href="../tutorial.html">Tutorial</a></li>
+<li><a href="../examples/index.html">Gallery</a></li>
+<li><a href="../api.html">API</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body></html>
+<div class="container">
+<div class="row">
+<div class="body col-md-12 content" role="main">
+<div class="section" id="lineplot-from-a-wide-form-dataset">
+<span id="wide-data-lineplot"></span><h1>Lineplot from a wide-form dataset<a class="headerlink" href="wide_data_lineplot.html#lineplot-from-a-wide-form-dataset" title="Permalink to this headline">¶</a></h1>
+<img alt="../_images/wide_data_lineplot.png" src="../_images/wide_data_lineplot.png"/>
+<p><strong>seaborn components used:</strong> <a class="reference internal" href="../generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_theme()</span></code></a>, <a class="reference internal" href="../generated/seaborn.lineplot.html#seaborn.lineplot" title="seaborn.lineplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">lineplot()</span></code></a></p>
+<div class="col-md-9"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"whitegrid"</span><span class="p">)</span>
+
+<span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">365</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">365</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">"1 1 2016"</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"D"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">])</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"tab10"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="pull-right">
+<a href="wide_data_lineplot.html#">Back to top</a>
+<br/>
+</p>
+<p>
+    © Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+</p>
+</div>
+</footer>
+</body>
+</html>

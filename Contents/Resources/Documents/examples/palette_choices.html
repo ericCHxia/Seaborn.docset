@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Color palette choices — seaborn 0.11.1 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/bootstrap-sphinx.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/style.css" rel="stylesheet" type="text/css"/>
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script src="../_static/copybutton.js"></script>
+<link href="../_static/favicon.ico" rel="shortcut icon"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="palette_generation.html" rel="next" title="Different cubehelix palettes"/>
+<link href="pairgrid_dotplot.html" rel="prev" title="Dot plot with several variables"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<script src="../_static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../_static/js/jquery-fix.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-sphinx.js" type="text/javascript"></script>
+</head><body>
+<html><body><div class="navbar navbar-default navbar-fixed-top" id="navbar">
+<div class="container">
+<div class="navbar-header">
+<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+<button class="navbar-toggle" data-target=".nav-collapse" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html#"><span><img src="../_static/logo-wide-lightbg.svg"/></span>
+</a>
+<span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+</div>
+<div class="collapse navbar-collapse nav-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../introduction.html">Introduction</a></li>
+<li><a href="../installing.html">Installing</a></li>
+<li><a href="../tutorial.html">Tutorial</a></li>
+<li><a href="../examples/index.html">Gallery</a></li>
+<li><a href="../api.html">API</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body></html>
+<div class="container">
+<div class="row">
+<div class="body col-md-12 content" role="main">
+<div class="section" id="color-palette-choices">
+<span id="palette-choices"></span><h1>Color palette choices<a class="headerlink" href="palette_choices.html#color-palette-choices" title="Permalink to this headline">¶</a></h1>
+<img alt="../_images/palette_choices.png" src="../_images/palette_choices.png"/>
+<p><strong>seaborn components used:</strong> <a class="reference internal" href="../generated/seaborn.set_theme.html#seaborn.set_theme" title="seaborn.set_theme"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_theme()</span></code></a>, <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.barplot.html#seaborn.barplot" title="seaborn.barplot"><code class="xref py py-func docutils literal notranslate"><span class="pre">barplot()</span></code></a>, <a class="reference internal" href="../generated/seaborn.despine.html#seaborn.despine" title="seaborn.despine"><code class="xref py py-func docutils literal notranslate"><span class="pre">despine()</span></code></a></p>
+<div class="col-md-9"><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">"white"</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="s2">"talk"</span><span class="p">)</span>
+<span class="n">rs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Set up the matplotlib figure</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Generate some sequential data</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s2">"ABCDEFGHIJ"</span><span class="p">))</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y1</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"rocket"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Sequential"</span><span class="p">)</span>
+
+<span class="c1"># Center the data to make it diverging</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="mf">5.5</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"vlag"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Diverging"</span><span class="p">)</span>
+
+<span class="c1"># Randomly reorder the data to make it qualitative</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y1</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y3</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"deep"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Qualitative"</span><span class="p">)</span>
+
+<span class="c1"># Finalize the plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">axes</span><span class="p">,</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">h_pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="pull-right">
+<a href="palette_choices.html#">Back to top</a>
+<br/>
+</p>
+<p>
+    © Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+</p>
+</div>
+</footer>
+</body>
+</html>

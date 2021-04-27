@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>seaborn.FacetGrid.map_dataframe — seaborn 0.11.1 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/bootstrap-sphinx.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/style.css" rel="stylesheet" type="text/css"/>
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script src="../_static/copybutton.js"></script>
+<link href="../_static/favicon.ico" rel="shortcut icon"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="seaborn.pairplot.html" rel="next" title="seaborn.pairplot"/>
+<link href="seaborn.FacetGrid.map.html" rel="prev" title="seaborn.FacetGrid.map"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<script src="../_static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../_static/js/jquery-fix.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-sphinx.js" type="text/javascript"></script>
+</head><body>
+<html><body><div class="navbar navbar-default navbar-fixed-top" id="navbar">
+<div class="container">
+<div class="navbar-header">
+<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+<button class="navbar-toggle" data-target=".nav-collapse" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html#"><span><img src="../_static/logo-wide-lightbg.svg"/></span>
+</a>
+<span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+</div>
+<div class="collapse navbar-collapse nav-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../introduction.html">Introduction</a></li>
+<li><a href="../installing.html">Installing</a></li>
+<li><a href="../tutorial.html">Tutorial</a></li>
+<li><a href="../examples/index.html">Gallery</a></li>
+<li><a href="../api.html">API</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body></html>
+<div class="container">
+<div class="row">
+<div class="body col-md-12 content" role="main">
+</div>
+<div class="col-md-9" content=""><div class="section" id="seaborn-facetgrid-map-dataframe">
+<h1>seaborn.FacetGrid.map_dataframe<a class="headerlink" href="seaborn.FacetGrid.map_dataframe.html#seaborn-facetgrid-map-dataframe" title="Permalink to this headline">¶</a></h1>
+<dl class="py method">
+<dt id="seaborn.FacetGrid.map_dataframe">
+<code class="sig-prename descclassname">FacetGrid.</code><code class="sig-name descname">map_dataframe</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">func</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="seaborn.FacetGrid.map_dataframe.html#seaborn.FacetGrid.map_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">.map</span></code> but passes args as strings and inserts data in kwargs.</p>
+<p>This method is suitable for plotting with functions that accept a
+long-form DataFrame as a <code class="docutils literal notranslate"><span class="pre">data</span></code> keyword argument and access the
+data in that DataFrame using string variable names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>func</strong><span class="classifier">callable</span></dt><dd><p>A plotting function that takes data and keyword arguments. Unlike
+the <code class="docutils literal notranslate"><span class="pre">map</span></code> method, a function used here must “understand” Pandas
+objects. It also must plot to the currently active matplotlib Axes
+and take a <code class="docutils literal notranslate"><span class="pre">color</span></code> keyword argument. If faceting on the <code class="docutils literal notranslate"><span class="pre">hue</span></code>
+dimension, it must also take a <code class="docutils literal notranslate"><span class="pre">label</span></code> keyword argument.</p>
+</dd>
+<dt><strong>args</strong><span class="classifier">strings</span></dt><dd><p>Column names in self.data that identify variables with data to
+plot. The data for each variable is passed to <code class="docutils literal notranslate"><span class="pre">func</span></code> in the
+order the variables are specified in the call.</p>
+</dd>
+<dt><strong>kwargs</strong><span class="classifier">keyword arguments</span></dt><dd><p>All keyword arguments are passed to the plotting function.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd><p>Returns self.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="pull-right">
+<a href="seaborn.FacetGrid.map_dataframe.html#">Back to top</a>
+<br/>
+</p>
+<p>
+    © Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+</p>
+</div>
+</footer>
+</body>
+</html>

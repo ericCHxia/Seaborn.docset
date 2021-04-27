@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>seaborn.color_palette — seaborn 0.11.1 documentation</title>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/bootstrap-sphinx.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/style.css" rel="stylesheet" type="text/css"/>
+<script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+<script src="../_static/jquery.js"></script>
+<script src="../_static/underscore.js"></script>
+<script src="../_static/doctools.js"></script>
+<script src="../_static/language_data.js"></script>
+<script src="../_static/copybutton.js"></script>
+<link href="../_static/favicon.ico" rel="shortcut icon"/>
+<link href="../genindex.html" rel="index" title="Index"/>
+<link href="../search.html" rel="search" title="Search"/>
+<link href="seaborn.husl_palette.html" rel="next" title="seaborn.husl_palette"/>
+<link href="seaborn.set_palette.html" rel="prev" title="seaborn.set_palette"/>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<script src="../_static/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../_static/js/jquery-fix.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../_static/bootstrap-sphinx.js" type="text/javascript"></script>
+</head><body>
+<html><body><div class="navbar navbar-default navbar-fixed-top" id="navbar">
+<div class="container">
+<div class="navbar-header">
+<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+<button class="navbar-toggle" data-target=".nav-collapse" data-toggle="collapse" type="button">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html#"><span><img src="../_static/logo-wide-lightbg.svg"/></span>
+</a>
+<span class="navbar-text navbar-version pull-left"><b>0.11.1</b></span>
+</div>
+<div class="collapse navbar-collapse nav-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../introduction.html">Introduction</a></li>
+<li><a href="../installing.html">Installing</a></li>
+<li><a href="../tutorial.html">Tutorial</a></li>
+<li><a href="../examples/index.html">Gallery</a></li>
+<li><a href="../api.html">API</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body></html>
+<div class="container">
+<div class="row">
+<div class="body col-md-12 content" role="main">
+</div>
+<div class="col-md-9" content=""><div class="section" id="seaborn-color-palette">
+<h1>seaborn.color_palette<a class="headerlink" href="seaborn.color_palette.html#seaborn-color-palette" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="seaborn.color_palette">
+<code class="sig-prename descclassname">seaborn.</code><code class="sig-name descname">color_palette</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">palette</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">n_colors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">desat</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">as_cmap</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="seaborn.color_palette.html#seaborn.color_palette" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of colors or continuous colormap defining a palette.</p>
+<dl class="simple">
+<dt>Possible <code class="docutils literal notranslate"><span class="pre">palette</span></code> values include:</dt><dd><ul class="simple">
+<li><p>Name of a seaborn palette (deep, muted, bright, pastel, dark, colorblind)</p></li>
+<li><p>Name of matplotlib colormap</p></li>
+<li><p>‘husl’ or ‘hls’</p></li>
+<li><p>‘ch:&lt;cubehelix arguments&gt;’</p></li>
+<li><p>‘light:&lt;color&gt;’, ‘dark:&lt;color&gt;’, ‘blend:&lt;color&gt;,&lt;color&gt;’,</p></li>
+<li><p>A sequence of colors in any format matplotlib accepts</p></li>
+</ul>
+</dd>
+</dl>
+<p>Calling this function with <code class="docutils literal notranslate"><span class="pre">palette=None</span></code> will return the current
+matplotlib color cycle.</p>
+<p>This function can also be used in a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement to temporarily
+set the color cycle for a plot or set of plots.</p>
+<p>See the <a class="reference internal" href="../tutorial/color_palettes.html#palette-tutorial"><span class="std std-ref">tutorial</span></a> for more information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>palette: None, string, or sequence, optional</strong></dt><dd><p>Name of palette or None to return current palette. If a sequence, input
+colors are used but possibly cycled and desaturated.</p>
+</dd>
+<dt><strong>n_colors</strong><span class="classifier">int, optional</span></dt><dd><p>Number of colors in the palette. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default will depend
+on how <code class="docutils literal notranslate"><span class="pre">palette</span></code> is specified. Named palettes default to 6 colors,
+but grabbing the current palette or passing in a list of colors will
+not change the number of colors unless this is specified. Asking for
+more colors than exist in the palette will cause it to cycle. Ignored
+when <code class="docutils literal notranslate"><span class="pre">as_cmap</span></code> is True.</p>
+</dd>
+<dt><strong>desat</strong><span class="classifier">float, optional</span></dt><dd><p>Proportion to desaturate each color by.</p>
+</dd>
+<dt><strong>as_cmap</strong><span class="classifier">bool</span></dt><dd><p>If True, return a <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of RGB tuples or <a class="reference external" href="https://matplotlib.org/api/_as_gen/matplotlib.colors.Colormap.html#matplotlib.colors.Colormap" title="(in Matplotlib v3.3.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.colors.Colormap</span></code></a></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="seaborn.set_palette.html#seaborn.set_palette" title="seaborn.set_palette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_palette</span></code></a></dt><dd><p>Set the default color cycle for all plots.</p>
+</dd>
+<dt><a class="reference internal" href="seaborn.set_color_codes.html#seaborn.set_color_codes" title="seaborn.set_color_codes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_color_codes</span></code></a></dt><dd><p>Reassign color codes like <code class="docutils literal notranslate"><span class="pre">"b"</span></code>, <code class="docutils literal notranslate"><span class="pre">"g"</span></code>, etc. to colors from one of the seaborn palettes.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Calling with no arguments returns all colors from the current default
+color cycle:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()</span>
+</pre></div>
+</div>
+<svg height="55" width="550"><rect height="55" style="fill:#4c72b0;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="0" y="0"></rect><rect height="55" style="fill:#dd8452;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="55" y="0"></rect><rect height="55" style="fill:#55a868;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="110" y="0"></rect><rect height="55" style="fill:#c44e52;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="165" y="0"></rect><rect height="55" style="fill:#8172b3;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="220" y="0"></rect><rect height="55" style="fill:#937860;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="275" y="0"></rect><rect height="55" style="fill:#da8bc3;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="330" y="0"></rect><rect height="55" style="fill:#8c8c8c;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="385" y="0"></rect><rect height="55" style="fill:#ccb974;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="440" y="0"></rect><rect height="55" style="fill:#64b5cd;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="495" y="0"></rect></svg><p>Other variants on the seaborn categorical color palette can be referenced by name:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"pastel"</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg height="55" width="550"><rect height="55" style="fill:#a1c9f4;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="0" y="0"></rect><rect height="55" style="fill:#ffb482;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="55" y="0"></rect><rect height="55" style="fill:#8de5a1;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="110" y="0"></rect><rect height="55" style="fill:#ff9f9b;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="165" y="0"></rect><rect height="55" style="fill:#d0bbff;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="220" y="0"></rect><rect height="55" style="fill:#debb9b;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="275" y="0"></rect><rect height="55" style="fill:#fab0e4;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="330" y="0"></rect><rect height="55" style="fill:#cfcfcf;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="385" y="0"></rect><rect height="55" style="fill:#fffea3;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="440" y="0"></rect><rect height="55" style="fill:#b9f2f0;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="495" y="0"></rect></svg><p>Return a specified number of evenly spaced hues in the “HUSL” system:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"husl"</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg height="55" width="495"><rect height="55" style="fill:#f77189;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="0" y="0"></rect><rect height="55" style="fill:#d58c32;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="55" y="0"></rect><rect height="55" style="fill:#a4a031;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="110" y="0"></rect><rect height="55" style="fill:#50b131;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="165" y="0"></rect><rect height="55" style="fill:#34ae91;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="220" y="0"></rect><rect height="55" style="fill:#37abb5;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="275" y="0"></rect><rect height="55" style="fill:#3ba3ec;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="330" y="0"></rect><rect height="55" style="fill:#bb83f4;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="385" y="0"></rect><rect height="55" style="fill:#f564d4;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="440" y="0"></rect></svg><p>Return all unique colors in a categorical Color Brewer palette:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"Set2"</span><span class="p">)</span>
+</pre></div>
+</div>
+<svg height="55" width="440"><rect height="55" style="fill:#66c2a5;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="0" y="0"></rect><rect height="55" style="fill:#fc8d62;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="55" y="0"></rect><rect height="55" style="fill:#8da0cb;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="110" y="0"></rect><rect height="55" style="fill:#e78ac3;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="165" y="0"></rect><rect height="55" style="fill:#a6d854;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="220" y="0"></rect><rect height="55" style="fill:#ffd92f;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="275" y="0"></rect><rect height="55" style="fill:#e5c494;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="330" y="0"></rect><rect height="55" style="fill:#b3b3b3;stroke-width:2;stroke:rgb(255,255,255)" width="55" x="385" y="0"></rect></svg><p>Return one of the perceptually-uniform colormaps included in seaborn:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"flare"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="flare color map" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABp0lEQVR4nO3VQVbDMAwFQIWTcyMuxh3MAto4sZLSv57ZEGzZsl4Xf/v++hxVVTV+/9S4+h6//59ra98f8/7he67v9mu64+Id3V3Td3/ufqbxRu11j3WOcXdHTfXP/Xn+6s/N622/amovzr88d7FfW1u7ntseUx5+shrb/j0/71T/rD3csdd0a/uo2/Gn+avZ7zrdWxd3vLh3H/nUb+qz1v5vfdmf3nle389M++07j7P0Pfrez5ne6nFc73rUzfptj1fn2rePy7vXHuOm97idaUyTrb/TuHjneb3rMZZzj7Pd+9e3nec/9rh9Z9fj7+OjACAgQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASDyAywPZEDTzkfkAAAAAElFTkSuQmCC" title="flare"/><p>Return a customized cubehelix color palette:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"ch:s=.25,rot=-.25"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="seaborn_cubehelix color map" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABsElEQVR4nO3VS1LDMBAFwIH7n4tjcAAOIbFIxUi2FKdesexeIXn0mTjhfXx9//Sqqt7r0OsxGOda78e4Dw+ef7dx/VC7qpnXX8fnmnHdat/z3Dh+zq3P7tXbtXbd57rv3X3uejpq27z+3Z5qqJ3OaPP87d3vemp9ena5z3L9MNfmcQ01q/c01W7OXvVUy7OH/Zbv6bTvae2u9vrZ9+m+53Xz2tOaquq93fS6P/t4vn1PN5/R3xfn6PnV2cu7b/Yd9zvO2PY0/xD3d291fsfj8+NOqz5388Oa1X3md3n5h/EPtfPcMb7tqV3GU81u3xdnv7VvVfV6zH0WAAQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAEQECAARAQJARIAAEBEgAER+AXm53Pk4BtiVAAAAAElFTkSuQmCC" title="seaborn_cubehelix"/><p>Return a light-themed sequential colormap to a seed color:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">"light:#5A9"</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="blend color map" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAAyCAYAAAByHI2dAAABq0lEQVR4nO3VQVLDMAwFUMP9b8qG4QJiUdoorh3gM8PqvUWnSRON5Sj9L28f7zXGGFU1xhjj9jm+vtfjRN2P20U1f9ZxXx1F+tFRq+p0fPtyXHmq3W7vtap25869zH30uvMq5j563Xq6+lhEbfrodZZ9TGt4rHnuY1rT1f7041Uf/e7j2vkp3Z7Rqo++5ue9/V0f/b6nmTjt7TRDP+yjps3Yzl7bt+9m72pGnmfv3EevtZuHx++bPi5nb1P3r+9QX8PVunZzfa+7e4f+ZfY2a16fW/9HrN6tNnrTPi5mb/fer2ZvUffyHZqeTz576xlZ/Ue8DgAICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACICBAAIgIEgIgAASAiQACIfAJcGDgKfbFt9gAAAABJRU5ErkJggg==" title="blend"/></dd></dl>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="pull-right">
+<a href="seaborn.color_palette.html#">Back to top</a>
+<br/>
+</p>
+<p>
+    © Copyright 2012-2020, <a href="https://www.cns.nyu.edu/~mwaskom">Michael Waskom</a>.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+</p>
+</div>
+</footer>
+</body>
+</html>
